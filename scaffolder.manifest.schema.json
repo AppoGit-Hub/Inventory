@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://happli.be/schemas/scaffolder.manifest.json",
+  "title": "Scaffolder manifest",
+  "description": "The manifest data that is used to generate a new project",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The name of the project",
+      "type": "string"
+    },
+    "version": {
+      "description": "The version of the generator that created this project",
+      "type": "string"
+    },
+    "databaseType": {
+      "description": "The type of database to use",
+      "type": "string",
+      "enum": [
+        "sqlite",
+        "mysql",
+        "postgres",
+        "mssql",
+        "mongo"
+      ]
+    },
+    "entities": {
+      "description": "The entities that are part of the project",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entity"
+      }
+    }
+  },
+  "$defs": {
+    "attribute": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the attribute",
+          "type": "string"
+        },
+        "value": {
+          "description": "The arguments of the attribute",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "property": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the property",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the property",
+          "type": "string"
+        },
+        "attributes": {
+          "description": "The attributes of the property",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/attribute"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ]
+    },
+    "entityProperty": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/property"
+        },
+        {
+          "properties": {
+            "required": {
+              "type": "boolean",
+              "description": "Whether the property is required"
+            }
+          },
+          "required": [
+            "required"
+          ]
+        }
+      ]
+    },
+    "migrationData": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "The type of the migration",
+          "type": "string",
+          "enum": [
+            "add",
+            "remove",
+            "change"
+          ]
+        },
+        "data": {
+          "description": "The previous state of the property for the remove and change types, and the new state for the add type",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/property"
+          }
+        }
+      }
+    },
+    "migration": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "description": "The timestamp of the migration",
+          "type": "string",
+          "format": "date-time"
+        },
+        "data": {
+          "description": "The data of the migration",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/migrationData"
+          }
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the entity",
+          "type": "string"
+        },
+        "properties": {
+          "description": "The fields of the entity",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entityProperty"
+          }
+        },
+        "migrations": {
+          "description": "The migrations that are part of the entity",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/migration"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "properties"
+      ]
+    }
+  }
+}

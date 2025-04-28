@@ -1,0 +1,7 @@
+{
+  "$schema": "scaffolder.manifest.schema.json",
+  "name": "Inventory",
+  "version": "1.0.0.0",
+  "databaseType": "mongo",
+  "entities": []
+}
