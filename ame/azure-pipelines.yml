@@ -1,0 +1,31 @@
+trigger:
+  - master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "18.x"
+    displayName: "Install Node.js"
+
+  - script: |
+      npm install -g @angular/cli
+      npm install -g yarn
+      yarn install
+    displayName: "Install dependencies"
+
+  - script: npx kendo-ui-license activate
+    displayName: "Activate Kendo UI license"
+    env:
+      KENDO_UI_LICENSE: $(KENDO_UI_LICENSE)
+
+  - script: ng build -c test
+    displayName: "Build project"
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: "$(Build.SourcesDirectory)/dist"
+      artifactName: "OptiflexApp"
+    displayName: "Publish Artifact"

@@ -1,0 +1,52 @@
+@if (dialogOpened) {
+  <kendo-dialog [title]="'Filter'" (close)="closeDialog()">
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      "
+    >
+      <kendo-numerictextbox
+        [ngModel]="start"
+        (afterValueChanged)="filterBetween($event, end)"
+        placeholder="Start"
+      />
+      <kendo-numerictextbox
+        [ngModel]="end"
+        (afterValueChanged)="filterBetween(start, $event)"
+        placeholder="End"
+      />
+    </div>
+
+    <kendo-dialog-actions>
+      <button kendoButton (click)="clearFilter()">Reset</button>
+      <button kendoButton [primary]="true" (click)="closeDialog()">
+        Close
+      </button>
+    </kendo-dialog-actions>
+  </kendo-dialog>
+}
+
+<span>
+  <span>Filter:</span>
+  @if (hasFilter) {
+    <span>{{ start ?? "/" }} - {{ end ?? "/" }}</span>
+  } @else {
+    <span>None</span>
+  }
+</span>
+
+<kendo-buttongroup>
+  <button kendoButton [svgIcon]="filterIcon" (click)="openDialog()"></button>
+
+  @if (hasFilter) {
+    <button
+      kendoButton
+      [svgIcon]="filterClearIcon"
+      (click)="clearFilter()"
+    ></button>
+  }
+</kendo-buttongroup>
