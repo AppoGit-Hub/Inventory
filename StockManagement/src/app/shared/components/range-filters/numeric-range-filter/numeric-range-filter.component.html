@@ -1,0 +1,56 @@
+<ng-container *transloco="let t">
+  @if (dialogOpened) {
+    <kendo-dialog [title]="t('dialog.filter.title')" (close)="closeDialog()">
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        "
+      >
+        <kendo-numerictextbox
+          [ngModel]="start"
+          (afterValueChanged)="filterBetween($event, end)"
+          [placeholder]="t('labels.start')"
+        />
+        <kendo-numerictextbox
+          [ngModel]="end"
+          (afterValueChanged)="filterBetween(start, $event)"
+          [placeholder]="t('labels.end')"
+        />
+      </div>
+
+      <kendo-dialog-actions>
+        <button kendoButton (click)="clearFilter()">
+          {{ t("dialog.filter.clear") }}
+        </button>
+        <button kendoButton [primary]="true" (click)="closeDialog()">
+          {{ t("dialog.filter.apply") }}
+        </button>
+      </kendo-dialog-actions>
+    </kendo-dialog>
+  }
+
+  <span>
+    <span>Filter:</span>
+    @if (hasFilter) {
+      <span>{{ start ?? "/" }} - {{ end ?? "/" }}</span>
+    } @else {
+      <span>{{ t("filter.range.noneSelected") }}</span>
+    }
+  </span>
+
+  <kendo-buttongroup>
+    <button kendoButton [svgIcon]="filterIcon" (click)="openDialog()"></button>
+
+    @if (hasFilter) {
+      <button
+        kendoButton
+        [svgIcon]="filterClearIcon"
+        (click)="clearFilter()"
+      ></button>
+    }
+  </kendo-buttongroup>
+</ng-container>

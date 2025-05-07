@@ -1,0 +1,38 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "paths": {
+      "@api-proxy/*": ["./src/app/api/*"],
+      "@components/*": ["./src/app/shared/components/*"],
+      "@services/*": ["./src/app/shared/services/*"],
+      "@models/*": ["./src/app/shared/models/*"],
+      "@validators/*": ["./src/app/shared/validators/*"],
+      "@pipes/*": ["./src/app/shared/pipes/*"],
+      "@directives/*": ["./src/app/shared/directives/*"],
+      "@providers/*": ["./src/app/shared/providers/*"],
+      "@guards/*": ["./src/app/shared/guards/*"],
+      "@lib/*": ["./src/app/shared/lib/*"],
+      "@environments/*": ["./src/environments/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

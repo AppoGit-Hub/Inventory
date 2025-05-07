@@ -1,0 +1,70 @@
+<ng-container *transloco="let t">
+  @if (dialogOpened) {
+    <kendo-dialog [title]="t('dialog.filter.title')" (close)="closeDialog()">
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        "
+      >
+        <kendo-datetimepicker
+          format="dd/MM/yyyy HH:mm"
+          [value]="start ?? null"
+          (afterValueChanged)="filterBetween($event, end)"
+        />
+        <kendo-datetimepicker
+          format="dd/MM/yyyy HH:mm"
+          [value]="end ?? null"
+          (afterValueChanged)="filterBetween(start, $event)"
+        />
+      </div>
+
+      <kendo-dialog-actions>
+        <button kendoButton (click)="clearFilter()">
+          {{ t("dialog.filter.clear") }}
+        </button>
+        <button kendoButton [primary]="true" (click)="closeDialog()">
+          {{ t("dialog.filter.apply") }}
+        </button>
+      </kendo-dialog-actions>
+    </kendo-dialog>
+  }
+
+  <span>
+    <span>{{ t("filter.range.title") }}:</span>
+    @if (hasFilter) {
+      <span>
+        @if (start) {
+          {{ start | date: "dd/MM/yyyy HH:mm" }}
+        } @else {
+          /
+        }
+        -
+        @if (end) {
+          {{ end | date: "dd/MM/yyyy HH:mm" }}
+        } @else {
+          /
+        }
+      </span>
+    } @else {
+      <span>
+        {{ t("filter.range.noneSelected") }}
+      </span>
+    }
+  </span>
+
+  <kendo-buttongroup>
+    <button kendoButton [svgIcon]="filterIcon" (click)="openDialog()"></button>
+
+    @if (hasFilter) {
+      <button
+        kendoButton
+        [svgIcon]="filterClearIcon"
+        (click)="clearFilter()"
+      ></button>
+    }
+  </kendo-buttongroup>
+</ng-container>

@@ -1,0 +1,35 @@
+{
+  "dialog": {
+    "filter": {
+      "title": "Filter",
+      "clear": "Clear",
+      "apply": "Apply"
+    }
+  },
+  "filter": {
+    "range": {
+      "title": "Range",
+      "noneSelected": "None"
+    }
+  },
+  "error": {
+    "http": {
+      "message": "An error occurred while processing your request. Please try again later."
+    }
+  },
+  "labels": {
+    "item": "Item #{{index}}",
+    "action": "Action",
+    "select": "Select..."
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "update": "Update",
+    "create": "Create",
+    "add": "Add",
+    "remove": "Remove",
+    "edit": "Edit",
+    "delete": "Delete",
+    "resetFilters": "Reset filters"
+  }
+}
