@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <OutputType>Library</OutputType>
+        <UserSecretsId>f2016f87-e091-43c3-9472-4e120321c10b</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,8 +22,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-      <Folder Include="DTO\" />
       <Folder Include="Mapping\" />
     </ItemGroup>
 

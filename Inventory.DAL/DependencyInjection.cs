@@ -5,6 +5,8 @@ using MongoDB.Driver;
 
 using Inventory.DAL.Repositories;
 using Inventory.IDAL;
+using Inventory.IDAL.BCE;
+using Inventory.DAL.BCE;
 
 namespace Inventory.DAL;
 
@@ -29,6 +31,11 @@ public static class DependencyInjection
         ConfigureConventions();
 
         services.AddScoped<IDiagnosticsRepository, DiagnosticsRepository>();
+		services.AddScoped<ISupplierRepository, SupplierRepository>();
+        services.AddScoped<ISupplierBCERepository, SupplierBCERepository>();
+		services.AddScoped<IOrderRepository, OrderRepository>();
+		services.AddScoped<IModelRepository, ModelRepository>();
+		services.AddScoped<IStockRepository, StockRepository>();
 
         return services;
     }

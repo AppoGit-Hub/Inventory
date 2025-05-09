@@ -4,9 +4,11 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <UserSecretsId>ea06dbc0-5889-4f15-af90-3efa10a505a3</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.3" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.3" />
           <PackageReference Include="MongoDB.Driver" Version="3.3.0" />
@@ -15,6 +17,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Inventory.Domain\Inventory.Domain.csproj" />
       <ProjectReference Include="..\Inventory.IDAL\Inventory.IDAL.csproj" />
+      <ProjectReference Include="..\Inventory.Interface\Inventory.Interface.csproj" />
       <ProjectReference Include="..\Inventory.Shared\Inventory.Shared.csproj" />
     </ItemGroup>
 

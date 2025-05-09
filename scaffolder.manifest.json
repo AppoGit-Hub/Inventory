@@ -3,5 +3,300 @@
   "name": "Inventory",
   "version": "1.0.0.0",
   "databaseType": "mongo",
-  "entities": []
+  "entities": [
+    {
+      "name": "Supplier",
+      "properties": [
+        {
+          "attributes": [],
+          "name": "Id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Version",
+          "type": "int",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "TenantId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Number",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Email",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "PhoneNumber",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Fax",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "WebSite",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Road",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "HouseNumber",
+          "type": "int",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "BoxNumber",
+          "type": "int",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "MuniciaplityNumber",
+          "type": "int",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Country",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "migrations": []
+    },
+    {
+      "name": "Order",
+      "properties": [
+        {
+          "attributes": [],
+          "name": "ExternalCode",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "ShippingDate",
+          "type": "System.Nullable<System.DateTime>",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "IssueDate",
+          "type": "System.Nullable<System.DateTime>",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "PayLimitDate",
+          "type": "System.Nullable<System.DateTime>",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Lines",
+          "type": "System.Collections.Generic.IEnumerable<Inventory.Domain.Entities.OrderLine>",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Supplier",
+          "type": "Inventory.Domain.Entities.SupplierKey",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Version",
+          "type": "int",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "TenantId",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "migrations": []
+    },
+    {
+      "name": "Model",
+      "properties": [
+        {
+          "attributes": [],
+          "name": "Id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Version",
+          "type": "int",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "TenantId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "InternalCode",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "ExternalCode",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Conditionement",
+          "type": "int",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Unit",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "ManagementType",
+          "type": "Inventory.Domain.Entities.ManagementType",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Batches",
+          "type": "System.Collections.Generic.IEnumerable<string>",
+          "required": false
+        }
+      ],
+      "migrations": []
+    },
+    {
+      "name": "Stock",
+      "properties": [
+        {
+          "attributes": [],
+          "name": "Id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Version",
+          "type": "int",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "TenantId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Capacity",
+          "type": "int",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Thresholds",
+          "type": "System.Collections.Generic.IEnumerable<Inventory.Domain.Entities.Threshold>",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Mouvements",
+          "type": "System.Collections.Generic.IEnumerable<Inventory.Domain.Entities.Mouvement>",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Road",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "HouseNumber",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "BoxNumber",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "ZipCode",
+          "type": "string",
+          "required": false
+        },
+        {
+          "attributes": [],
+          "name": "Country",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "migrations": []
+    }
+  ]
 }

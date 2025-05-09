@@ -3,8 +3,7 @@ using MongoDB.Driver;
 
 namespace Inventory.DAL.Repositories;
 
-public class DiagnosticsRepository(IMongoDatabase database)
-	: IDiagnosticsRepository
+public class DiagnosticsRepository(IMongoDatabase database) : IDiagnosticsRepository
 {
 	public Task<bool> IsDatabaseOnline()
 	{

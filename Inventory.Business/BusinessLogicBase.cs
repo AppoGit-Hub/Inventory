@@ -7,7 +7,7 @@ using Inventory.IDAL;
 
 namespace Inventory.Business;
 
-public class BusinessLogicBase<T>(IRepository<T> repository)
+public class BusinessLogicBase<T>(IRepository<T> repository) 
 	: IBusinessLogic<T> where T : IRootEntity
 {
 	public async Task<DataSourceResult> Search(DataSourceRequest request)

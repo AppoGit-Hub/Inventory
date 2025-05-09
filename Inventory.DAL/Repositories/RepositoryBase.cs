@@ -7,7 +7,8 @@ using Inventory.Shared.Interfaces;
 
 namespace Inventory.DAL.Repositories;
 
-public class RepositoryBase<T>(IMongoDatabase database, ITenantProvider tenantProvider) : IRepository<T> where T : IRootEntity
+public class RepositoryBase<T>(IMongoDatabase database, ITenantProvider tenantProvider) 
+    : IRepository<T> where T : IRootEntity
 {
     protected readonly IMongoCollection<T> _collection = database.GetCollection<T>(typeof(T).Name);
     

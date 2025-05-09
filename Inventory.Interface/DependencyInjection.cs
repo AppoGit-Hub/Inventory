@@ -23,7 +23,9 @@ public static class DependencyInjection
                             policy
                                 .WithOrigins(
                                     "http://localhost:4200",
-                                    "https://localhost:4200"
+                                    "https://localhost:4200",
+                                    "http://locahost:5131",
+                                    "https://localhost:7236"
                                 )
                                 .AllowCredentials()
                                 .AllowAnyHeader()
@@ -79,7 +81,7 @@ public static class DependencyInjection
             app.UseSwaggerUI();
         }
 
-        app.UseHttpsRedirection();
+        //app.UseHttpsRedirection();
 
         app.UseAuthentication();
         app.UseAuthorization();
