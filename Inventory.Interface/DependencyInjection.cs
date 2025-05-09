@@ -35,7 +35,6 @@ public static class DependencyInjection
                 }
             );
         services
-            .AddSingleton(ModelMapperFactory.CreateMappers)
             .AddControllers(controllersConfiguration)
             .AddJsonOptions(
                 options =>
