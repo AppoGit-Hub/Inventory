@@ -7,6 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Entities\" />
+      <PackageReference Include="TinyCsvParser" Version="2.7.1" />
     </ItemGroup>
 </Project>
