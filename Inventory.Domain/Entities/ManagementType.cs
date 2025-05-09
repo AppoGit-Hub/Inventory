@@ -1,7 +1,7 @@
 ﻿namespace Inventory.Domain.Entities;
 
-public class ManagementType
+public enum ManagementType
 {
-    string BATCH;
-    string PRODUCT;
+    BATCH,
+    PRODUCT
 }
