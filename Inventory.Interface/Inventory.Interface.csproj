@@ -28,6 +28,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Inventory.Domain\Inventory.Domain.csproj" />
       <ProjectReference Include="..\Inventory.IBusiness\Inventory.IBusiness.csproj" />
+      <ProjectReference Include="..\Inventory.IDAL\Inventory.IDAL.csproj" />
       <ProjectReference Include="..\Inventory.Shared\Inventory.Shared.csproj" />
     </ItemGroup>
 
