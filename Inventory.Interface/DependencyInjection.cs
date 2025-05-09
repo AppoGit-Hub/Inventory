@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Json.Serialization;
 
 using Inventory.Interface.Mapping;
+using System.Reflection;
 
 namespace Inventory.Interface;
 
@@ -66,7 +67,7 @@ public static class DependencyInjection
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
-
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
         return services;
     }
 
