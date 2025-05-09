@@ -11,6 +11,6 @@ public class Order : IRootEntity
     public DateTime? ShippingDate { get; set; }
     public DateTime? IssueDate { get; set; }
     public DateTime? PayLimitDate { get; set; }
-    public string SupplierId { get; set; }
+    public Supplier Supplier { get; set; }
     public IEnumerable<OrderLine> Lines { get; set; }
 }
